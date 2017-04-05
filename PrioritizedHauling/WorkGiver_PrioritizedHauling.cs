@@ -7,7 +7,7 @@ using Verse;
 
 namespace PrioritizedHauling
 {
-    public class WorkGiver_PrioritizedHauling : WorkGiver_Haul
+    public class WorkGiver_PrioritizedHauling : WorkGiver_HaulGeneral
     {
         public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
         {
