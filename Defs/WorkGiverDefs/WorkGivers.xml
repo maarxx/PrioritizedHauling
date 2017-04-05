@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<WorkGivers>
+	<WorkGiverDef>
+		<defName>PriorityHauling</defName>
+		<label>haul prioritized things</label>
+		<giverClass>PrioritizedHauling.WorkGiver_PrioritizedHauling</giverClass>
+		<workType>Hauling</workType>
+		<verb>haul</verb>
+		<gerund>hauling</gerund>
+		<priorityInType>11</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+</WorkGivers>
