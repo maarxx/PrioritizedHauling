@@ -2,6 +2,7 @@
 <WorkGivers>
 	<WorkGiverDef>
 		<defName>PriorityHauling</defName>
+		<label>haul prioritized things</label>
 		<giverClass>PrioritizedHauling.WorkGiver_PrioritizedHauling</giverClass>
 		<workType>Hauling</workType>
 		<verb>haul</verb>
