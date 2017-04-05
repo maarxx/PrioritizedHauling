@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ModMetaData>
+  <name>PrioritizedHauling</name>
+  <author>Maarx</author>
+  <url>https://github.com/maarxx/PrioritizedHauling/</url>
+  <targetVersion>0.16.1393</targetVersion>
+  <description>Allows you to specify certain types of objects to be hauled at higher priority.</description>
+</ModMetaData>
