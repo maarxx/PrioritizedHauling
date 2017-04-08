@@ -18,7 +18,6 @@ namespace PrioritizedHauling
         [DetourMethod(typeof(JobGiver_Work), "TryGiveJob")]
         private static Job TryGiveJob(this JobGiver_Work self, Pawn pawn)
         {
-            Log.Message("Hello from JobGiver_Work.TryGiveJob");
             if (self.emergency && pawn.mindState.priorityWork.IsPrioritized)
             {
                 List<WorkGiverDef> workGiversByPriority = pawn.mindState.priorityWork.WorkType.workGiversByPriority;
@@ -72,12 +71,47 @@ namespace PrioritizedHauling
                                         enumerable2 = pawn.Map.listerThings.ThingsMatching(scanner.PotentialWorkThingRequest);
                                     }
                                     Predicate<Thing> validator = predicate;
-                                    thing = GenClosest.ClosestThing_Global_Reachable(pawn.Position, pawn.Map, enumerable2, scanner.PathEndMode, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, (Thing x) => scanner.GetPriority(pawn, x));
+                                    if (workGiver is WorkGiver_PrioritizedHauling)
+                                    {
+                                        Log.Message("Hello from JobGiver_Work.TryGiveJob for WorkGiver_PrioritizedHauling for scanner.Prioritized");
+                                        WorkGiver_PrioritizedHauling wg_ph = (WorkGiver_PrioritizedHauling)workGiver;
+                                        thing = null;
+                                        foreach (IEnumerable<Thing> prioritySet in wg_ph.getAllPrioritySets(pawn))
+                                        {
+                                            thing = GenClosest.ClosestThing_Global_Reachable(pawn.Position, pawn.Map, prioritySet, scanner.PathEndMode, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, (Thing x) => scanner.GetPriority(pawn, x));
+                                            if (thing != null)
+                                            {
+                                                break;
+                                            }
+                                        }
+                                        
+                                    }
+                                    else
+                                    {
+                                        thing = GenClosest.ClosestThing_Global_Reachable(pawn.Position, pawn.Map, enumerable2, scanner.PathEndMode, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, (Thing x) => scanner.GetPriority(pawn, x));
+                                    }
                                 }
                                 else
                                 {
                                     Predicate<Thing> validator = predicate;
-                                    thing = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, scanner.PotentialWorkThingRequest, scanner.PathEndMode, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, enumerable, scanner.LocalRegionsToScanFirst, enumerable != null);
+                                    if (workGiver is WorkGiver_PrioritizedHauling)
+                                    {
+                                        Log.Message("Hello from JobGiver_Work.TryGiveJob for WorkGiver_PrioritizedHauling for !scanner.Prioritized");
+                                        WorkGiver_PrioritizedHauling wg_ph = (WorkGiver_PrioritizedHauling)workGiver;
+                                        thing = null;
+                                        foreach (IEnumerable<Thing> prioritySet in wg_ph.getAllPrioritySets(pawn))
+                                        {
+                                            thing = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, scanner.PotentialWorkThingRequest, scanner.PathEndMode, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, prioritySet, scanner.LocalRegionsToScanFirst, prioritySet != null);
+                                            if (thing != null)
+                                            {
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        thing = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, scanner.PotentialWorkThingRequest, scanner.PathEndMode, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, enumerable, scanner.LocalRegionsToScanFirst, enumerable != null);
+                                    }
                                 }
                                 if (thing != null)
                                 {

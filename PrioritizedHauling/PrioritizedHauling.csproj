@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainTabWindow_PrioritizedHauling.cs" />
     <Compile Include="MapComponent_PrioritizedHauling.cs" />
     <Compile Include="Overrides.cs" />
     <Compile Include="WorkGiver_PrioritizedHauling.cs" />
