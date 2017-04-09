@@ -37,7 +37,7 @@ namespace PrioritizedHauling
 
         internal IEnumerable<Thing> ThingsPotentiallyNeedingHauling()
         {
-            List<List<Thing>> llt = (List<List<Thing>>) getAllPrioritySets();
+            List<List<Thing>> llt = getAllPrioritySets();
             List<Thing> condensed = new List<Thing>();
             foreach (List<Thing> lt in llt)
             {
@@ -49,26 +49,36 @@ namespace PrioritizedHauling
             return condensed;
         }
 
-        internal IEnumerable<IEnumerable<Thing>> getAllPrioritySets()
+        internal List<List<Thing>> getAllPrioritySets()
         {
+            Log.Message("1");
             IEnumerable<Thing> everything = everythingPotentiallyNeedingHauling();
+            Log.Message("2");
             List<List<Thing>> allPrioritySets = new List<List<Thing>>();
+            Log.Message("3");
             foreach (ThingDef def in prioritizedThingDefs)
             {
+                Log.Message("4");
                 List<Thing> prioritySet = new List<Thing>();
+                Log.Message("5");
                 foreach (Thing thing in everything)
                 {
+                    Log.Message("6");
                     if (thing.def == def)
                     {
                         prioritySet.Add(thing);
                     }
+                    Log.Message("7");
                 }
+                Log.Message("8");
                 if (prioritySet.Count > 0)
                 {
+                    Log.Message("9");
                     allPrioritySets.Add(prioritySet);
                 }
             }
-            return (IEnumerable<IEnumerable<Thing>>)allPrioritySets;
+            Log.Message("10");
+            return allPrioritySets;
         }
 
         public List<ThingDef> getKnownThingDefs()

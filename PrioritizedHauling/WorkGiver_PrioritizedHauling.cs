@@ -15,7 +15,7 @@ namespace PrioritizedHauling
             return pawn.Map.GetComponent<MapComponent_PrioritizedHauling>().ThingsPotentiallyNeedingHauling();
         }
 
-        internal IEnumerable<IEnumerable<Thing>> getAllPrioritySets(Pawn pawn)
+        internal List<List<Thing>> getAllPrioritySets(Pawn pawn)
         {
             return pawn.Map.GetComponent<MapComponent_PrioritizedHauling>().getAllPrioritySets();
         }

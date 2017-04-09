@@ -76,7 +76,7 @@ namespace PrioritizedHauling
                                         Log.Message("Hello from JobGiver_Work.TryGiveJob for WorkGiver_PrioritizedHauling for scanner.Prioritized");
                                         WorkGiver_PrioritizedHauling wg_ph = (WorkGiver_PrioritizedHauling)workGiver;
                                         thing = null;
-                                        foreach (IEnumerable<Thing> prioritySet in wg_ph.getAllPrioritySets(pawn))
+                                        foreach (List<Thing> prioritySet in wg_ph.getAllPrioritySets(pawn))
                                         {
                                             thing = GenClosest.ClosestThing_Global_Reachable(pawn.Position, pawn.Map, prioritySet, scanner.PathEndMode, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, (Thing x) => scanner.GetPriority(pawn, x));
                                             if (thing != null)
@@ -99,7 +99,7 @@ namespace PrioritizedHauling
                                         Log.Message("Hello from JobGiver_Work.TryGiveJob for WorkGiver_PrioritizedHauling for !scanner.Prioritized");
                                         WorkGiver_PrioritizedHauling wg_ph = (WorkGiver_PrioritizedHauling)workGiver;
                                         thing = null;
-                                        foreach (IEnumerable<Thing> prioritySet in wg_ph.getAllPrioritySets(pawn))
+                                        foreach (List<Thing> prioritySet in wg_ph.getAllPrioritySets(pawn))
                                         {
                                             thing = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, scanner.PotentialWorkThingRequest, scanner.PathEndMode, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, prioritySet, scanner.LocalRegionsToScanFirst, prioritySet != null);
                                             if (thing != null)
