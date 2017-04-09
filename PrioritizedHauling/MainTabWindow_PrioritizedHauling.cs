@@ -61,7 +61,7 @@ namespace PrioritizedHauling
             }
 
             Text.Font = GameFont.Small;
-            for (int i = 1; i <= 5; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 Rect nextButton = new Rect(canvas);
                 nextButton.y = i * (BUTTON_HEIGHT + BUTTON_SPACE);
@@ -87,7 +87,7 @@ namespace PrioritizedHauling
                         }
                         break;
                     */
-                    case 1:
+                    case 0:
                         buttonLabel = "Add Priority ThingDef";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
@@ -97,7 +97,7 @@ namespace PrioritizedHauling
                             }
                         }
                         break;
-                    case 2:
+                    case 1:
                         buttonLabel = "Increment Priority ThingDef";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
@@ -107,7 +107,7 @@ namespace PrioritizedHauling
                             }
                         }
                         break;
-                    case 3:
+                    case 2:
                         buttonLabel = "Decrement Priority ThingDef";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
@@ -117,7 +117,7 @@ namespace PrioritizedHauling
                             }
                         }
                         break;
-                    case 4:
+                    case 3:
                         buttonLabel = "Remove Priority ThingDef";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
@@ -127,7 +127,7 @@ namespace PrioritizedHauling
                             }
                         }
                         break;
-                    case 5:
+                    case 4:
                         buttonLabel = "Clear Priority ThingDef";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
