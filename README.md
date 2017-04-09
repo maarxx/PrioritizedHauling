@@ -16,9 +16,7 @@ This is a mod for the game RimWorld by Ludeon Studios.
 
 You'll add the mod. You'll enable the mod.
 
-It adds a new WorkGiver. I think this means it only works in New Games.
-
-If you are using Fluffy's WorkTab in Detailed Mode, you can see the new WorkGiver:"HaulPriority"/"Haul priority things" inside WorkType:"Haul".
+It adds a new WorkGiver. If you are using Fluffy's WorkTab in Detailed Mode, you can see the new WorkGiver:"Haul priority things" inside WorkType:"Haul".
 
 By default, this WorkGiver won't do anything.
 
