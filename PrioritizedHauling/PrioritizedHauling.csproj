@@ -35,6 +35,10 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="HugsLib">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\294100\818773962\Assemblies\HugsLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainTabWindow_PrioritizedHauling.cs" />
+    <Compile Include="MapComponent_PrioritizedHauling.cs" />
+    <Compile Include="Overrides.cs" />
     <Compile Include="WorkGiver_PrioritizedHauling.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
