@@ -38,30 +38,45 @@ namespace PrioritizedHauling
 
             MapComponent_PrioritizedHauling component = Find.VisibleMap.GetComponent<MapComponent_PrioritizedHauling>();
 
-            List<ThingDef> prioritizedThingDefs = component.getPrioritizedThingDefs();
-            List<ThingDef> knownThingDefs = component.getKnownThingDefs();
+            List<Priority> priorities = component.getPriorities();
 
-            List<FloatMenuOption> menuRemovePrioritizedThingDefs = new List<FloatMenuOption>();
-            List<FloatMenuOption> menuIncrementPrioritizedThingDefs = new List<FloatMenuOption>();
-            List<FloatMenuOption> menuDecrementPrioritizedThingDefs = new List<FloatMenuOption>();
-            foreach (ThingDef td in prioritizedThingDefs)
+            List<ThingDef> knownThingDefs = component.getKnownThingDefs();
+            List<ThingCategoryDef> knownThingCategoryDefs = component.getKnownThingCategoryDefs();
+
+            List<FloatMenuOption> menuRemovePriorities = new List<FloatMenuOption>();
+            List<FloatMenuOption> menuIncrementPriorities = new List<FloatMenuOption>();
+            List<FloatMenuOption> menuDecrementPriorities = new List<FloatMenuOption>();
+            foreach (Priority p in priorities)
             {
-                menuRemovePrioritizedThingDefs.Add(new FloatMenuOption(td.label, delegate { component.removePriorityThingDef(td); }));
-                menuIncrementPrioritizedThingDefs.Add(new FloatMenuOption(td.label, delegate { component.incrementPriorityThingDef(td); }));
-                menuDecrementPrioritizedThingDefs.Add(new FloatMenuOption(td.label, delegate { component.decrementPriorityThingDef(td); }));
+                menuRemovePriorities.Add(new FloatMenuOption(p.label, delegate { component.removePriority(p); }));
+                menuIncrementPriorities.Add(new FloatMenuOption(p.label, delegate { component.incrementPriority(p); }));
+                menuDecrementPriorities.Add(new FloatMenuOption(p.label, delegate { component.decrementPriority(p); }));
             }
 
             List<FloatMenuOption> menuAddPrioritizableThingDefs = new List<FloatMenuOption>();
             foreach (ThingDef td in knownThingDefs)
             {
-                if (!prioritizedThingDefs.Contains(td))
+                Priority temp = new Priority();
+                temp.thingDef = td;
+                if (!priorities.Contains(temp))
                 {
                     menuAddPrioritizableThingDefs.Add(new FloatMenuOption(td.label, delegate { component.addPriorityThingDef(td); }));
                 }
             }
 
+            List<FloatMenuOption> menuAddPrioritizableThingCategoryDefs = new List<FloatMenuOption>();
+            foreach (ThingCategoryDef tcd in knownThingCategoryDefs)
+            {
+                Priority temp = new Priority();
+                temp.thingCategoryDef = tcd;
+                if (!priorities.Contains(temp))
+                {
+                    menuAddPrioritizableThingCategoryDefs.Add(new FloatMenuOption(tcd.label, delegate { component.addPriorityThingCategoryDef(tcd); }));
+                }
+            }
+
             Text.Font = GameFont.Small;
-            for (int i = 0; i <= 4; i++)
+            for (int i = 0; i <= 5; i++)
             {
                 Rect nextButton = new Rect(canvas);
                 nextButton.y = i * (BUTTON_HEIGHT + BUTTON_SPACE);
@@ -98,36 +113,46 @@ namespace PrioritizedHauling
                         }
                         break;
                     case 1:
-                        buttonLabel = "Increment Priority ThingDef";
+                        buttonLabel = "Add Priority ThingCategoryDef";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
-                            if (menuIncrementPrioritizedThingDefs.Count > 0)
+                            if (menuAddPrioritizableThingCategoryDefs.Count > 0)
                             {
-                                Find.WindowStack.Add(new FloatMenu(menuIncrementPrioritizedThingDefs));
+                                Find.WindowStack.Add(new FloatMenu(menuAddPrioritizableThingCategoryDefs));
                             }
                         }
                         break;
                     case 2:
-                        buttonLabel = "Decrement Priority ThingDef";
+                        buttonLabel = "Increment Priority";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
-                            if (menuDecrementPrioritizedThingDefs.Count > 0)
+                            if (menuIncrementPriorities.Count > 0)
                             {
-                                Find.WindowStack.Add(new FloatMenu(menuDecrementPrioritizedThingDefs));
+                                Find.WindowStack.Add(new FloatMenu(menuIncrementPriorities));
                             }
                         }
                         break;
                     case 3:
-                        buttonLabel = "Remove Priority ThingDef";
+                        buttonLabel = "Decrement Priority";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
-                            if (menuRemovePrioritizedThingDefs.Count > 0)
+                            if (menuDecrementPriorities.Count > 0)
                             {
-                                Find.WindowStack.Add(new FloatMenu(menuRemovePrioritizedThingDefs));
+                                Find.WindowStack.Add(new FloatMenu(menuDecrementPriorities));
                             }
                         }
                         break;
                     case 4:
+                        buttonLabel = "Remove Priority";
+                        if (Widgets.ButtonText(nextButton, buttonLabel))
+                        {
+                            if (menuRemovePriorities.Count > 0)
+                            {
+                                Find.WindowStack.Add(new FloatMenu(menuRemovePriorities));
+                            }
+                        }
+                        break;
+                    case 5:
                         buttonLabel = "Clear Priority ThingDef";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
