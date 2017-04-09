@@ -51,33 +51,23 @@ namespace PrioritizedHauling
 
         internal List<List<Thing>> getAllPrioritySets()
         {
-            Log.Message("1");
             IEnumerable<Thing> everything = everythingPotentiallyNeedingHauling();
-            Log.Message("2");
             List<List<Thing>> allPrioritySets = new List<List<Thing>>();
-            Log.Message("3");
             foreach (ThingDef def in prioritizedThingDefs)
             {
-                Log.Message("4");
                 List<Thing> prioritySet = new List<Thing>();
-                Log.Message("5");
                 foreach (Thing thing in everything)
                 {
-                    Log.Message("6");
                     if (thing.def == def)
                     {
                         prioritySet.Add(thing);
                     }
-                    Log.Message("7");
                 }
-                Log.Message("8");
                 if (prioritySet.Count > 0)
                 {
-                    Log.Message("9");
                     allPrioritySets.Add(prioritySet);
                 }
             }
-            Log.Message("10");
             return allPrioritySets;
         }
 

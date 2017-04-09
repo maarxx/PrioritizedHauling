@@ -73,7 +73,7 @@ namespace PrioritizedHauling
                                     Predicate<Thing> validator = predicate;
                                     if (workGiver is WorkGiver_PrioritizedHauling)
                                     {
-                                        Log.Message("Hello from JobGiver_Work.TryGiveJob for WorkGiver_PrioritizedHauling for scanner.Prioritized");
+                                        //Log.Message("Hello from JobGiver_Work.TryGiveJob for WorkGiver_PrioritizedHauling for scanner.Prioritized");
                                         WorkGiver_PrioritizedHauling wg_ph = (WorkGiver_PrioritizedHauling)workGiver;
                                         thing = null;
                                         foreach (List<Thing> prioritySet in wg_ph.getAllPrioritySets(pawn))
@@ -96,7 +96,7 @@ namespace PrioritizedHauling
                                     Predicate<Thing> validator = predicate;
                                     if (workGiver is WorkGiver_PrioritizedHauling)
                                     {
-                                        Log.Message("Hello from JobGiver_Work.TryGiveJob for WorkGiver_PrioritizedHauling for !scanner.Prioritized");
+                                        //Log.Message("Hello from JobGiver_Work.TryGiveJob for WorkGiver_PrioritizedHauling for !scanner.Prioritized");
                                         WorkGiver_PrioritizedHauling wg_ph = (WorkGiver_PrioritizedHauling)workGiver;
                                         thing = null;
                                         foreach (List<Thing> prioritySet in wg_ph.getAllPrioritySets(pawn))
