@@ -24,7 +24,7 @@ By default, this WorkGiver won't do anything.
 
 Within the game, the mod adds a MainTab, probably in the far-bottom-right-corner, labeled "PrioritizedHauling", with buttons for control functions.
 
-You can use these buttons to set certain types of items ("ThingDefs") for prioritized hauling, and then all of these items will be hauled, in the order you've specified, using the new WorkGiver.
+You can use these buttons to set certain types of items ("ThingDefs") for prioritized hauling, and then all of these items will be hauled, **in the order you've specified**, using the new WorkGiver.
 
 Click "Add Priority ThingDef" to view the list of items available for hauling that are not set for priority, and click an item to add it for priority.
 
