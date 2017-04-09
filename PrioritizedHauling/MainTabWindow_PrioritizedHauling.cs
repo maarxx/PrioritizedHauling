@@ -61,7 +61,7 @@ namespace PrioritizedHauling
             }
 
             Text.Font = GameFont.Small;
-            for (int i = 0; i <= 5; i++)
+            for (int i = 1; i <= 5; i++)
             {
                 Rect nextButton = new Rect(canvas);
                 nextButton.y = i * (BUTTON_HEIGHT + BUTTON_SPACE);
@@ -70,13 +70,6 @@ namespace PrioritizedHauling
                 string buttonLabel;
                 switch (i)
                 {
-                    case 0:
-                        buttonLabel = "Entire Mod is:" + Environment.NewLine + "Always Enabled";
-                        if (Widgets.ButtonText(nextButton, buttonLabel))
-                        {
-                            // Filler Button
-                        }
-                        break;
                     /*
                     case 0:
                         buttonLabel = "Entire Mod is Currently:" + Environment.NewLine;
