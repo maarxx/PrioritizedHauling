@@ -11,8 +11,13 @@ namespace PrioritizedHauling
     {
         public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
         {
-            Log.Message("Hello from WorkGiver_PrioritizedHauling.PotentialWorkThingsGlobal");
-            return base.PotentialWorkThingsGlobal(pawn);
+            //Log.Message("Hello from WorkGiver_PrioritizedHauling.PotentialWorkThingsGlobal");
+            return pawn.Map.GetComponent<MapComponent_PrioritizedHauling>().ThingsPotentiallyNeedingHauling();
+        }
+
+        internal List<List<Thing>> getAllPrioritySets(Pawn pawn)
+        {
+            return pawn.Map.GetComponent<MapComponent_PrioritizedHauling>().getAllPrioritySets();
         }
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MainTabDefs>
+
+  <MainTabDef>
+    <defName>PrioritizedHauling</defName>
+    <label>PrioritizedHauling</label>
+    <description>Allows you to specify the priority order in which items should be hauled.</description>
+    <windowClass>PrioritizedHauling.MainTabWindow_PrioritizedHauling</windowClass>
+    <order>994</order>
+    <!--<defaultToggleKey>F1</defaultToggleKey>-->
+  </MainTabDef>
+  
+</MainTabDefs>
