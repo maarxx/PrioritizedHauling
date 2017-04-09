@@ -38,7 +38,7 @@ Click "Clear Priority ThingDef" to completely clear the priority list.
 
 This mod uses HugsLib to detour one method: `JobGiver_Work.TryGiveJob(Pawn pawn)`
 
-This mod is therefore **incompatible** with any other mod which attempts to detour the same method: `JobGiver_Work.TryGiveJob(Pawn pawn)`
+This mod is therefore **incompatible** with any other mod which attempts to detour the same method.
 
 # Specific Additional Features
 
