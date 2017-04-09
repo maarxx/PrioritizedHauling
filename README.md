@@ -16,21 +16,23 @@ This is a mod for the game RimWorld by Ludeon Studios.
 
 You'll add the mod. You'll enable the mod.
 
-It adds a new WorkGiver. If you are using Fluffy's WorkTab in Detailed Mode, you can see the new WorkGiver:"Haul priority things" inside WorkType:"Haul".
+If you care, you'll notice it adds a new WorkGiver. That might not mean anything to you. That's okay. But if you are using something like Fluffy's WorkTab in Detailed Mode, you can see the new WorkGiver:"Haul priority things" inside WorkType:"Haul".
 
 By default, this WorkGiver won't do anything.
 
 Within the game, the mod adds a MainTab, probably in the far-bottom-right-corner, labeled "PrioritizedHauling", with buttons for control functions.
 
-You can use these buttons to set certain types of items ("ThingDefs") for prioritized hauling, and then all of these items will be hauled, **in the order you've specified**, using the new WorkGiver.
+You can use these buttons to set certain items ("ThingDefs") or certain categories of item ("ThingCategoryDef") for prioritized hauling, and then all of these items will be hauled first, **in the priority order you've specified**, using the new WorkGiver.
 
-Click "Add Priority ThingDef" to view the list of items available for hauling that are not set for priority, and click an item to add it for priority.
+Click "Add Priority ThingDef" or "Add Priority ThingCategoryDef" to view the list of items/categories available for hauling that are not set for priority, and click an entry to add it for priority.
 
-Click "Increment/Decrement Priority ThingDef" to view the list of items already set for priority in order, and click an item to bump it higher or lower in the list, accordingly.
+Click "Increment/Decrement Priority" to view the existing priority list, in order, and click an entry to bump it higher or lower in the list, accordingly.
 
-Click "Remove Priority ThingDef" to view the list of items already set for priority, and click an item to remove it from priority.
+Click "Remove Priority" to view the existing priority list, in order, and click an entry to remove it from priority.
 
-Click "Clear Priority ThingDef" to completely clear the priority list.
+Click "Clear Priority" to completely clear the priority list.
+
+When there is nothing left to haul on priority using this new WorkGiver, Pawns will fail over to the vanilla hauling WorkGiver for any remaining items.
 
 **Technical Compatibility Note:**
 
