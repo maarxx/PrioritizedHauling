@@ -77,7 +77,7 @@ namespace PrioritizedHauling
             {
                 this.knownThingDefs.Add(t.def);
             }
-            return this.knownThingDefs.ToList();
+            return this.knownThingDefs.OrderBy(o => o.label).ToList();
         }
 
         public List<ThingDef> getPrioritizedThingDefs()
