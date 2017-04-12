@@ -42,7 +42,11 @@ This mod is therefore **incompatible** with any other mod which attempts to deto
 
 # Specific Additional Features
 
-None, as of yet.
+If you've built a very complex list of things to be hauled in a very specific order, you can Export the list and then Import it later.
+
+If you've grown attached to your list, be sure to Export it before quitting the game, because otherwise it is not saved. And be sure to Import it when loading back into the game.
+
+You can even use this Exports/Imports across different colonies, they are universal.
 
 # How to Install
 
