@@ -2,7 +2,7 @@
 
 This is a mod for the game RimWorld by Ludeon Studios.
 
-Allows you to specify certain types of objects to be hauled at higher priority, in a customizable order.
+It allows you to specify certain types of objects to be hauled at higher priority, in a customizable order.
 
 # Table of Contents
 
