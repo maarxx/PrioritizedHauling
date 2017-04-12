@@ -12,12 +12,15 @@ namespace PrioritizedHauling
     class MainTabWindow_PrioritizedHauling : MainTabWindow
     {
 
+        private string curFileName;
+
         private const float BUTTON_HEIGHT = 50f;
         private const float BUTTON_SPACE = 10f;
 
         public MainTabWindow_PrioritizedHauling()
         {
             //base.forcePause = true;
+            this.curFileName = "Testing";
         }
 
         public override Vector2 InitialSize
@@ -25,7 +28,7 @@ namespace PrioritizedHauling
             get
             {
                 //return base.InitialSize;
-                return new Vector2(250f, 400f);
+                return new Vector2(250f, 600f);
             }
         }
 
@@ -75,8 +78,14 @@ namespace PrioritizedHauling
                 }
             }
 
+            List<FloatMenuOption> menuImportablePriorities = new List<FloatMenuOption>();
+            foreach (string name in SaveLoad_PrioritizedHauling.getAllFiles())
+            {
+                menuImportablePriorities.Add(new FloatMenuOption(name, delegate { component.setPriorities(SaveLoad_PrioritizedHauling.importPriorities(name)); } ));
+            }
+
             Text.Font = GameFont.Small;
-            for (int i = 0; i <= 5; i++)
+            for (int i = 0; i <= 8; i++)
             {
                 Rect nextButton = new Rect(canvas);
                 nextButton.y = i * (BUTTON_HEIGHT + BUTTON_SPACE);
@@ -153,10 +162,43 @@ namespace PrioritizedHauling
                         }
                         break;
                     case 5:
-                        buttonLabel = "Clear Priority ThingDef";
+                        buttonLabel = "Clear Priorities";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
                             component.clearPrioritizedThingDefs();
+                        }
+                        break;
+                    case 6:
+                        buttonLabel = "Import Priorities";
+                        if (Widgets.ButtonText(nextButton, buttonLabel))
+                        {
+                            if (menuImportablePriorities.Count > 0)
+                            {
+                                Find.WindowStack.Add(new FloatMenu(menuImportablePriorities));
+                            }
+                        }
+                        break;
+                    case 7:
+                        buttonLabel = "Export FileName";
+
+                        Rect topHalf = new Rect(nextButton);
+                        Rect bottomHalf = new Rect(nextButton);
+
+                        topHalf.height = topHalf.height / 2;
+                        bottomHalf.height = bottomHalf.height / 2;
+                        bottomHalf.y += topHalf.height;
+
+                        Widgets.Label(topHalf, buttonLabel);
+                        curFileName = Widgets.TextField(bottomHalf, curFileName);
+                        break;
+                    case 8:
+                        buttonLabel = "Export Priorities";
+                        if (Widgets.ButtonText(nextButton, buttonLabel))
+                        {
+                            if (curFileName.Length > 0 && curFileName.Length < 30 && !curFileName.Contains('.'))
+                            {
+                                SaveLoad_PrioritizedHauling.exportPriorities(curFileName, component.getPriorities());
+                            }
                         }
                         break;
                 }

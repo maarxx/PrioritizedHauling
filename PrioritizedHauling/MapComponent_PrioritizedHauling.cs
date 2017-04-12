@@ -103,6 +103,11 @@ namespace PrioritizedHauling
             return this.priorities;
         }
 
+        public void setPriorities(List<Priority> priorities)
+        {
+            this.priorities = priorities;
+        }
+
         /*
         public void printThingCategoryDefs()
         {

@@ -55,6 +55,7 @@
     <Compile Include="MapComponent_PrioritizedHauling.cs" />
     <Compile Include="Overrides.cs" />
     <Compile Include="Priority.cs" />
+    <Compile Include="SaveLoad_PrioritizedHauling.cs" />
     <Compile Include="WorkGiver_PrioritizedHauling.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
