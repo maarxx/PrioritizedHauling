@@ -4,5 +4,5 @@
   <author>Maarx</author>
   <url>https://github.com/maarxx/PrioritizedHauling/</url>
   <targetVersion>0.16.1393</targetVersion>
-  <description>Allows you to specify certain types of objects to be hauled at higher priority.</description>
+  <description>Allows you to specify certain types of objects to be hauled at higher priority, in a customizable order.</description>
 </ModMetaData>
