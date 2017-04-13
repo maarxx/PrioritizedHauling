@@ -7,8 +7,15 @@ using Verse;
 
 namespace PrioritizedHauling
 {
-    class SaveLoad_PrioritizedHauling
+
+    [StaticConstructorOnStartup]
+    public static class SaveLoad_PrioritizedHauling
     {
+
+        static SaveLoad_PrioritizedHauling()
+        {
+            ensureDirectoriesExist();
+        }
 
         // Took some notes from JTExport on how to do basic file manipulation in C# / in a RimWorld mod. Thanks JamesTec!
 
