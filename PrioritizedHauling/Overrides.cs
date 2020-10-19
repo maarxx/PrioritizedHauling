@@ -1,4 +1,4 @@
-﻿using HugsLib.Source.Detour;
+﻿using HugsLib;
 using RimWorld;
 using System;
 using System.Collections.Generic;
